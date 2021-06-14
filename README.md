@@ -5,6 +5,7 @@
  - Visual networks: ...individual j can see individual i. Visibility is defined as occupying an angular area larger than a threshold value in the visual field of individual j.
  - Metric networks: ... the euclidean distance between i and j is smaller than a threshold value.
  - Topological networks: ... if i is among the k nearest neighbors of j (k being the threshold parameter defining this network)
+ 
 Additionally, two types of contagion dynamics, a simple and a complex fractional contagion process, can be simulated using code provided in ContagionNetworks.py 
 
 ```python
