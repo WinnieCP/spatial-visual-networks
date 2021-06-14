@@ -401,25 +401,6 @@ for i in range(10):
     ax.plot(time,activated_fraction,color='r',alpha=0.2)
 ```
 
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=63.7
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=41.800000000000004
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=69.2
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=47.650000000000006
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=64.85000000000001
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=41.650000000000006
-
-
-
 ![png](README_files/README_35_1.png)
 
 
