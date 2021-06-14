@@ -282,7 +282,7 @@ ax.set_ylabel('avg. in-degree')
 ax.set_xlabel('density [BL$^2$]')
 ```
 
-![png](README_files/README_24_1.png)
+![png](README_files/README_24_0.png)
 
 
 #### Other network measures
