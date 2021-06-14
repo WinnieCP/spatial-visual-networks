@@ -1,5 +1,5 @@
 
-# How to generate interaction networks for swarms of ellipses
+## Generate binary spatial interaction networks for groups of ellipses
 
 
 ```python
@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
 import ContagionNetworks as cc
+%matplotlib inline
 ```
 
 Inside ellipse_swarm.py there is a class called Swarm which can 
@@ -139,15 +140,15 @@ fig,ax=plt.subplots(1)
 mySwarm.draw_binary_network(visual_network,fig=fig,ax=ax,ellipse_edgecolor='indigo',show_index=True)
 ```
 
-    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:728: RuntimeWarning: invalid value encountered in sqrt
+    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:724: RuntimeWarning: invalid value encountered in sqrt
       t=(np.array([(-ee-np.sqrt(determinant))/(2.*dd),
-    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:729: RuntimeWarning: invalid value encountered in sqrt
+    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:725: RuntimeWarning: invalid value encountered in sqrt
       (-ee+np.sqrt(determinant))/(2.*dd)]))
-    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:730: RuntimeWarning: invalid value encountered in greater
+    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:726: RuntimeWarning: invalid value encountered in greater
       mask=np.array(t>0.,dtype=float)
 
 
-    [[0 1 0 1 1 1 0 1 1]
+    [[0 1 0 1 1 1 0 1 0]
      [1 0 1 1 1 1 1 0 1]
      [0 1 0 1 1 1 0 1 0]
      [1 1 1 0 1 0 1 1 1]
@@ -155,7 +156,7 @@ mySwarm.draw_binary_network(visual_network,fig=fig,ax=ax,ellipse_edgecolor='indi
      [1 1 1 0 1 0 1 1 1]
      [0 1 0 1 1 1 0 1 1]
      [1 0 1 1 1 1 1 0 1]
-     [1 1 0 1 1 1 0 1 0]]
+     [0 1 0 1 1 1 0 1 0]]
 
 
 
@@ -170,11 +171,11 @@ fig,ax=plt.subplots(1)
 mySwarm.draw_binary_network(metric_network,fig=fig,ax=ax,ellipse_edgecolor='coral',show_index=True)
 ```
 
-    [[0 1 0 1 1 0 0 0 0]
-     [1 0 1 1 1 1 0 0 0]
+    [[0 1 0 1 0 0 0 0 0]
+     [1 0 1 0 1 1 0 0 0]
      [0 1 0 0 1 1 0 0 0]
-     [1 1 0 0 1 0 1 1 0]
-     [1 1 1 1 0 1 1 1 1]
+     [1 0 0 0 1 0 1 1 0]
+     [0 1 1 1 0 1 1 1 1]
      [0 1 1 0 1 0 0 1 1]
      [0 0 0 1 1 0 0 1 0]
      [0 0 0 1 1 1 1 0 1]
@@ -193,15 +194,15 @@ fig,ax=plt.subplots(1)
 mySwarm.draw_binary_network(topological_network,fig=fig,ax=ax,ellipse_edgecolor='seagreen',show_index=True)
 ```
 
-    [[0 0 0 0 0 0 0 0 0]
+    [[0 1 0 1 0 0 0 0 0]
      [1 0 1 0 0 0 0 0 0]
-     [0 1 0 0 0 0 0 0 0]
+     [0 1 0 0 0 1 0 0 0]
      [1 0 0 0 0 0 1 0 0]
-     [0 1 0 1 0 1 0 1 0]
+     [0 0 0 0 0 1 0 1 0]
      [0 0 1 0 1 0 0 0 1]
-     [0 0 0 1 0 0 0 1 0]
+     [0 0 0 1 0 0 0 0 0]
      [0 0 0 0 1 0 1 0 1]
-     [0 0 0 0 0 1 0 0 0]]
+     [0 0 0 0 0 0 0 1 0]]
 
 
 
@@ -273,13 +274,21 @@ fig.set_size_inches(13,4)
 ```
 
     moving ellipses to get rid of intersections
-    moving ellipses to get rid of intersections
-    moving ellipses to get rid of intersections
+
+
+    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:724: RuntimeWarning: invalid value encountered in sqrt
+      t=(np.array([(-ee-np.sqrt(determinant))/(2.*dd),
+    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:725: RuntimeWarning: invalid value encountered in sqrt
+      (-ee+np.sqrt(determinant))/(2.*dd)]))
+    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:726: RuntimeWarning: invalid value encountered in greater
+      mask=np.array(t>0.,dtype=float)
+
+
     moving ellipses to get rid of intersections
 
 
 
-![png](README_files/README_23_1.png)
+![png](README_files/README_23_3.png)
 
 
 
@@ -327,10 +336,10 @@ print('average clustering coefficient: %1.4f'%avg_clustering)
 print('average relative link length: %1.4f'%avg_rel_link_length)
 ```
 
-    polarization: 0.1319
+    polarization: 0.1920
     avgerage shortest path; 1.7873
     average clustering coefficient: 0.7033
-    average relative link length: 0.2253
+    average relative link length: 0.2251
 
 
 ## 5. Running contagion dynamics on the networks 
@@ -370,25 +379,25 @@ for i in range(10):
 ```
 
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=2.5500000000000003
+    Done! - no infected or susceptible nodes left - terminating at t=3.25
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=3.5
+    Done! - no infected or susceptible nodes left - terminating at t=3.0
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=4.4
+    Done! - no infected or susceptible nodes left - terminating at t=3.5500000000000003
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=3.8000000000000003
+    Done! - no infected or susceptible nodes left - terminating at t=2.85
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=2.6500000000000004
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=2.8000000000000003
+    Done! - no infected or susceptible nodes left - terminating at t=3.1
     Initially infecting pre-set nodes: [0, 4, 5]
     Done! - no infected or susceptible nodes left - terminating at t=2.7
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=2.6
+    Done! - no infected or susceptible nodes left - terminating at t=3.25
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=2.7
+    Done! - no infected or susceptible nodes left - terminating at t=2.3000000000000003
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=1.9500000000000002
+    Done! - no infected or susceptible nodes left - terminating at t=2.45
+    Initially infecting pre-set nodes: [0, 4, 5]
+    Done! - no infected or susceptible nodes left - terminating at t=3.1500000000000004
 
 
 
@@ -443,24 +452,21 @@ for i in range(10):
 ```
 
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=68.75
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=67.55
+    Done! - no infected or susceptible nodes left - terminating at t=63.7
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=98.60000000000001
+    Done! - no infected or susceptible nodes left - terminating at t=41.800000000000004
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=16.85
+    Done! - no infected or susceptible nodes left - terminating at t=69.2
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=55.2
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=15.450000000000001
+    Done! - no infected or susceptible nodes left - terminating at t=47.650000000000006
     Initially infecting pre-set nodes: [0, 4, 5]
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=50.1
+    Done! - no infected or susceptible nodes left - terminating at t=64.85000000000001
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=60.800000000000004
     Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=53.900000000000006
+    Initially infecting pre-set nodes: [0, 4, 5]
+    Done! - no infected or susceptible nodes left - terminating at t=41.650000000000006
 
 
 
