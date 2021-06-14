@@ -282,14 +282,6 @@ ax.set_ylabel('avg. in-degree')
 ax.set_xlabel('density [BL$^2$]')
 ```
 
-
-
-
-    Text(0.5, 0, 'density [BL$^2$]')
-
-
-
-
 ![png](README_files/README_24_1.png)
 
 
