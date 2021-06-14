@@ -1,6 +1,11 @@
 
-## Generate binary spatial interaction networks for groups of ellipses
-
+## Generate binary spatial interaction networks for groups of ellipses and simulate contagion dynamics on them
+ The code in ellipse_swarm.py can be used to generate spatially distributed groups of ellipses and calculate three different types of 
+ spatial interaction networks based on their positions and orientations. In the (binary) interaction networks a link from individual i to individual j exists if...
+ - Visual networks: ...individual j can see individual i. Visibility is defined as occupying an angular area larger than a threshold value in the visual field of individual j.
+ - Metric networks: ... the euclidean distance between i and j is smaller than a threshold value.
+ - Topological networks: ... if i is among the k nearest neighbors of j (k being the threshold parameter defining this network)
+Additionally, two types of contagion dynamics, a simple and a complex fractional contagion process, can be simulated using code provided in ContagionNetworks.py 
 
 ```python
 import ellipse_swarm as esw
@@ -8,7 +13,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
 import ContagionNetworks as cc
-%matplotlib inline
 ```
 Inside ellipse_swarm.py there is a class called Swarm which can 
 - generate spatial configurations, 
@@ -321,7 +325,6 @@ print('average relative link length: %1.4f'%avg_rel_link_length)
 
 #### 5.1. Simple Contagion
 
-
 ```python
 swarm=esw.Swarm(N=81)
 adjacency_matrix,network=swarm.binary_metric_network(return_networkX=True,threshold=5)
@@ -352,29 +355,6 @@ for i in range(10):
     activated_fraction=(np.array(outdata['ninf'])+np.array(outdata['nrec']))/swarm.n
     ax.plot(time,activated_fraction,color='r',alpha=0.2)
 ```
-
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=3.25
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=3.0
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=3.5500000000000003
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=2.85
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=3.1
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=2.7
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=3.25
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=2.3000000000000003
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=2.45
-    Initially infecting pre-set nodes: [0, 4, 5]
-    Done! - no infected or susceptible nodes left - terminating at t=3.1500000000000004
-
-
 
 ![png](README_files/README_31_1.png)
 
