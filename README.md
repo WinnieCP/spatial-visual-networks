@@ -10,7 +10,6 @@ import networkx as nx
 import ContagionNetworks as cc
 %matplotlib inline
 ```
-
 Inside ellipse_swarm.py there is a class called Swarm which can 
 - generate spatial configurations, 
 - calculate the visual field of each individual, 
@@ -140,14 +139,7 @@ fig,ax=plt.subplots(1)
 mySwarm.draw_binary_network(visual_network,fig=fig,ax=ax,ellipse_edgecolor='indigo',show_index=True)
 ```
 
-    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:724: RuntimeWarning: invalid value encountered in sqrt
-      t=(np.array([(-ee-np.sqrt(determinant))/(2.*dd),
-    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:725: RuntimeWarning: invalid value encountered in sqrt
-      (-ee+np.sqrt(determinant))/(2.*dd)]))
-    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:726: RuntimeWarning: invalid value encountered in greater
-      mask=np.array(t>0.,dtype=float)
-
-
+  
     [[0 1 0 1 1 1 0 1 0]
      [1 0 1 1 1 1 1 0 1]
      [0 1 0 1 1 1 0 1 0]
@@ -230,8 +222,6 @@ mySwarm.plot_ellipses(alpha=0.5,color='r')
 plt.gcf().set_size_inches(10,10)
 ```
 
-    moving ellipses to get rid of intersections
-
 
 
 ![png](README_files/README_20_1.png)
@@ -272,21 +262,6 @@ for i,dist in enumerate(distances):
     
 fig.set_size_inches(13,4)
 ```
-
-    moving ellipses to get rid of intersections
-
-
-    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:724: RuntimeWarning: invalid value encountered in sqrt
-      t=(np.array([(-ee-np.sqrt(determinant))/(2.*dd),
-    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:725: RuntimeWarning: invalid value encountered in sqrt
-      (-ee+np.sqrt(determinant))/(2.*dd)]))
-    /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:726: RuntimeWarning: invalid value encountered in greater
-      mask=np.array(t>0.,dtype=float)
-
-
-    moving ellipses to get rid of intersections
-
-
 
 ![png](README_files/README_23_3.png)
 

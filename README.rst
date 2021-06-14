@@ -20,7 +20,7 @@ Inside ellipse_swarm.py there is a class called Swarm which can
 * do some plotting. 
 
 1. Initialize a swarm
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -38,7 +38,7 @@ Inside ellipse_swarm.py there is a class called Swarm which can
 
 
 1.1. Ellipse properties:
-^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ellipses always have a length of one and one eye.
 
@@ -77,7 +77,7 @@ Define the following ellipse properties when you create the swarm:
 
 
 1.2. Spatial configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can generate positions and orientations by specifying the following when initializing a swarm:
 
@@ -139,7 +139,7 @@ You can also read in positions and orientations of the ellipses via giving
   at initialization or update them using swarm.set_pos_orient(pos,phi)
 
 2. How to generate a visual, metric & topological network with a specific threshold
------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Swarm class has a function for the generation of each network type (see below). Each has the option to either return only the adjacency matrix or to additionally return a networkX DiGraph, which can be used for plotting the network or to obtain network measures.
 
@@ -155,14 +155,6 @@ The Swarm class has a function for the generation of each network type (see belo
    mySwarm.draw_binary_network(visual_network,fig=fig,ax=ax,ellipse_edgecolor='indigo',show_index=True)
 
 .. code-block::
-
-   /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:724: RuntimeWarning: invalid value encountered in sqrt
-     t=(np.array([(-ee-np.sqrt(determinant))/(2.*dd),
-   /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:725: RuntimeWarning: invalid value encountered in sqrt
-     (-ee+np.sqrt(determinant))/(2.*dd)]))
-   /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:726: RuntimeWarning: invalid value encountered in greater
-     mask=np.array(t>0.,dtype=float)
-
 
    [[0 1 0 1 1 1 0 1 0]
     [1 0 1 1 1 1 1 0 1]
@@ -240,10 +232,10 @@ The Swarm class has a function for the generation of each network type (see belo
 
 
 3. Requirements for the high density regime (overlap elimination)
------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If the initially generated positions contain overlaps, these are eliminated via _eliminate_overlaps() (this happens automatically if they are detected at initialization with eliminate_overlaps=True, which is default)
-The overlap elimination uses code derived from Palachanis et. Al (https://link.springer.com/article/10.1007/s40571-015-0064-5). See the readme within that publication for instructions on how to install the necessary packages.
+The overlap elimination uses code adapte from Palachanis et. Al (https://link.springer.com/article/10.1007/s40571-015-0064-5). See the readme within that publication for instructions on how to install the necessary packages.
 
 .. code-block:: python
 
@@ -260,13 +252,6 @@ The overlap elimination uses code derived from Palachanis et. Al (https://link.s
    mySwarm.plot_ellipses(alpha=0.5,color='r')
    plt.gcf().set_size_inches(10,10)
 
-.. code-block::
-
-   moving ellipses to get rid of intersections
-
-
-
-
 
 .. image:: README_files/README_20_1.png
    :target: README_files/README_20_1.png
@@ -274,7 +259,7 @@ The overlap elimination uses code derived from Palachanis et. Al (https://link.s
 
 
 4. Example of how to use the code to generate Figures 1 to 3 from the Paper
----------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Here, we generate a low resolution version of the plot in Figure 1C) (average in-degree vs. density) for a smaller group size (N=36) and only one threshold value for each network type
 
@@ -309,24 +294,6 @@ Here, we generate a low resolution version of the plot in Figure 1C) (average in
 
    fig.set_size_inches(13,4)
 
-.. code-block::
-
-   moving ellipses to get rid of intersections
-
-
-   /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:724: RuntimeWarning: invalid value encountered in sqrt
-     t=(np.array([(-ee-np.sqrt(determinant))/(2.*dd),
-   /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:725: RuntimeWarning: invalid value encountered in sqrt
-     (-ee+np.sqrt(determinant))/(2.*dd)]))
-   /home/poelwinn/gitrepos/visual_networks_code_for_publication/ellipse_swarm.py:726: RuntimeWarning: invalid value encountered in greater
-     mask=np.array(t>0.,dtype=float)
-
-
-   moving ellipses to get rid of intersections
-
-
-
-
 
 .. image:: README_files/README_23_3.png
    :target: README_files/README_23_3.png
@@ -358,7 +325,7 @@ Here, we generate a low resolution version of the plot in Figure 1C) (average in
 
 
 Other network measures
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~
 
 Let's use one metric network to show the calculation of other network measures:
 
@@ -389,10 +356,10 @@ Let's use one metric network to show the calculation of other network measures:
 
 
 5. Running contagion dynamics on the networks
----------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 5.1. Simple Contagion
-^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
@@ -468,6 +435,9 @@ cc.SingleRun returns a dictionary with the following entries:
 
 From these the time to 75% activation (infected + recovered individuals) is calculated
 
+5.2 Complex Contagion
+~~~~~~~~~~~~~~~~~~~~~
+
 .. code-block:: python
 
    swarm=esw.Swarm(N=81)
@@ -524,8 +494,8 @@ From these the time to 75% activation (infected + recovered individuals) is calc
 
 
 
-.. image:: README_files/README_34_1.png
-   :target: README_files/README_34_1.png
+.. image:: README_files/README_35_1.png
+   :target: README_files/README_35_1.png
    :alt: png
 
 
