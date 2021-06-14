@@ -17,7 +17,7 @@ Inside ellipse_swarm.py there is a class called Swarm which can
 - calculate the binary interaction networks (visual, metric, topological)
 - do some plotting. 
 
-## 1. Initialize a swarm
+### 1. Initialize a swarm
 
 
 ```python
@@ -34,7 +34,7 @@ mySwarm.plot_ellipses()
 ![png](README_files/README_5_0.png)
 
 
-### 1.1. Ellipse properties:
+#### 1.1. Ellipse properties:
 
 Ellipses always have a length of one and one eye.
 
@@ -69,7 +69,7 @@ plt.subplots_adjust(wspace=0.3)
 ![png](README_files/README_8_0.png)
 
 
-### 1.2. Spatial configuration
+#### 1.2. Spatial configuration
 
 You can generate positions and orientations by specifying the following when initializing a swarm:
 - N (number of indidivuals)
@@ -123,7 +123,7 @@ You can also read in positions and orientations of the ellipses via giving
 - and phi (orientations in radians)
 at initialization or update them using swarm.set_pos_orient(pos,phi)
 
-## 2. How to generate a visual, metric & topological network with a specific threshold
+### 2. How to generate a visual, metric & topological network with a specific threshold
 
 The Swarm class has a function for the generation of each network type (see below). Each has the option to either return only the adjacency matrix or to additionally return a networkX DiGraph, which can be used for plotting the network or to obtain network measures.
 
@@ -209,10 +209,10 @@ mySwarm.draw_binary_network(topological_network,fig=fig,ax=ax,ellipse_edgecolor=
 ![png](README_files/README_18_1.png)
 
 
-## 3. Requirements for the high density regime (overlap elimination)
+### 3. Requirements for the high density regime (overlap elimination)
 
 If the initially generated positions contain overlaps, these are eliminated via _eliminate_overlaps() (this happens automatically if they are detected at initialization with eliminate_overlaps=True, which is default)
-The overlap elimination uses code derived from Palachanis et. Al (https://link.springer.com/article/10.1007/s40571-015-0064-5). See the readme within that publication for instructions on how to install the necessary packages.
+The overlap elimination uses code adapte from Palachanis et. Al (https://link.springer.com/article/10.1007/s40571-015-0064-5). See the readme within that publication for instructions on how to install the necessary packages.
 
 
 ```python
@@ -237,7 +237,7 @@ plt.gcf().set_size_inches(10,10)
 ![png](README_files/README_20_1.png)
 
 
-## 4. Example of how to use the code to generate Figures 1 to 3 from the Paper
+### 4. Example of how to use the code to generate Figures 1 to 3 from the Paper
 
 Here, we generate a low resolution version of the plot in Figure 1C) (average in-degree vs. density) for a smaller group size (N=36) and only one threshold value for each network type
 
@@ -313,7 +313,7 @@ ax.set_xlabel('density [BL$^2$]')
 ![png](README_files/README_24_1.png)
 
 
-### Other network measures
+#### Other network measures
 
 Let's use one metric network to show the calculation of other network measures:
 
@@ -342,9 +342,9 @@ print('average relative link length: %1.4f'%avg_rel_link_length)
     average relative link length: 0.2251
 
 
-## 5. Running contagion dynamics on the networks 
+### 5. Running contagion dynamics on the networks 
 
-### 5.1. Simple Contagion
+#### 5.1. Simple Contagion
 
 
 ```python
@@ -416,6 +416,8 @@ From these the time to 75% activation (infected + recovered individuals) is calc
 
 
 
+#### 5.2 Complex Contagion
+
 
 ```python
 swarm=esw.Swarm(N=81)
@@ -470,7 +472,7 @@ for i in range(10):
 
 
 
-![png](README_files/README_34_1.png)
+![png](README_files/README_35_1.png)
 
 
 
