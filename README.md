@@ -1,4 +1,6 @@
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4983257.svg)](https://doi.org/10.5281/zenodo.4983257)
+
 ## Generate binary spatial interaction networks for groups of ellipses and simulate contagion dynamics on them
  The code in ellipse_swarm.py can be used to generate spatially distributed groups of ellipses and calculate three different types of 
  spatial interaction networks based on their positions and orientations. In the (binary) interaction networks a link from individual i to individual j exists if...
